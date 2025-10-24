@@ -1,0 +1,199 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header {
+    background-color: #004aad;
+    color: white;
+    text-align: center;
+    padding: 1.5rem 1rem;
+}
+
+.nav-toggle {
+    position: fixed;
+    top: 1rem;
+    left: 12px;
+    background: rgba(255,255,255,0.08);
+    border: solid 1px;
+    color: black;
+    font-size: 1.1rem;
+    padding: 0.45rem 0.7rem;
+    border-radius: 6px;
+    cursor: pointer;
+    z-index: 1101; /* acima do sidebar */
+    transition: left 0.25s ease-in-out, transform 0.25s;
+    display: none; /* oculto por padrão em telas grandes */
+}
+
+header h1 {
+    margin: 0;
+    padding-left: 50px;
+    font-size: 1.8rem;
+}
+
+nav, .sidebar {
+    --sidebar-width: 260px;
+    background-color: #e9eef5;
+    padding: 45px 20px 20px 20px;
+    width: var(--sidebar-width);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    overflow-y: auto;
+    border-right: 2px solid #ccc;
+    transition: transform 0.25s ease-in-out;
+}
+
+.sidebar[aria-hidden="true"] {
+    transform: translateX(-110%);
+}
+
+/* quando o menu estiver aberto adicionamos a classe no body para mover o botão junto */
+body.toc-open .nav-toggle {
+    left: calc(var(--sidebar-width) - 2px);
+}
+
+.sidebar .highlight {
+    background: rgba(0,74,173,0.08);
+    padding: 0.25rem;
+    border-radius: 4px;
+}
+
+nav h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+nav ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+nav ul li {
+    margin: 0.5rem 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #004aad;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #001f5b;
+}
+
+main {
+    margin-left: 280px;
+    padding: 2rem;
+}
+
+section {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    color: #004aad;
+    border-bottom: 2px solid #004aad;
+    padding-bottom: 0.3rem;
+}
+
+details {
+    margin-top: 1rem;
+}
+
+summary {
+    font-weight: bold;
+    cursor: pointer;
+    color: #004aad;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #004aad;
+    color: white;
+    margin-top: 2rem;
+}
+
+img {
+    width: auto;
+    height: auto;
+    max-width: 18.75rem;
+    max-height: 18.75rem;
+}
+
+.figuras-legendas {
+    display: flex;
+}
+
+.figuras {
+    display: flex;
+    justify-content: space-around;
+}
+
+.img {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.legenda {
+    margin-left: 20px;
+    text-align: left;
+    align-content: center;
+}
+
+@media (max-width: 800px) {
+    .nav-toggle {
+        display: block; /* visível apenas em telas pequenas */
+    }
+
+    nav, .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        z-index: 1000;
+        box-shadow: 2px 0 6px rgba(0,0,0,0.15);
+    }
+
+    .sidebar[aria-hidden="true"] {
+        transform: translateX(-110%);
+    }
+
+    .sidebar[aria-hidden="false"] {
+        transform: translateX(0);
+    }
+
+    main {
+        margin-left: 0;
+        padding-top: 4.5rem; /* espaço para o header com botão */
+    }
+
+    /* imagens responsivas em mobile */
+    img {
+        max-width: 100%;
+        height: auto;
+        max-height: none;
+    }
+
+    .figuras-legendas,
+    .figuras {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .legenda {
+        margin-left: 0;
+        margin-top: 0.5rem;
+        text-align: center;
+    }
+}
