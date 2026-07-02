@@ -4,6 +4,29 @@ body {
     padding: 0px;
     background-color: #f9f9f9;
     color: #333;
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+body.dark-mode {
+    background-color: #111827;
+    color: #f3f4f6;
+}
+
+.reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(0, 74, 173, 0.12);
+    z-index: 1202;
+}
+
+.reading-progress__bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #1e88e5 0%, #004aad 100%);
+    transition: width 0.15s ease-out;
 }
 
 header {
@@ -11,6 +34,10 @@ header {
     color: white;
     text-align: center;
     padding: 1.5rem 1rem;
+}
+
+body.dark-mode header {
+    background: linear-gradient(135deg, #0f172a 0%, #1d4ed8 100%);
 }
 
 .nav-toggle {
@@ -27,6 +54,25 @@ header {
     z-index: 1101; /* acima do sidebar */
     transition: left 0.25s ease-in-out, transform 0.25s;
     display: none; /* oculto por padrão em telas grandes */
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255,255,255,0.16);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: white;
+    font-size: 1rem;
+    padding: 0.45rem 0.7rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-1px);
+    background: rgba(255,255,255,0.24);
 }
 
 header h1 {
@@ -46,6 +92,13 @@ nav, .sidebar {
     overflow-y: auto;
     border-right: 2px solid #ccc;
     transition: transform 0.25s ease-in-out;
+}
+
+body.dark-mode nav,
+body.dark-mode .sidebar {
+    background-color: #1f2937;
+    border-right-color: #374151;
+    color: #f3f4f6;
 }
 
 .sidebar[aria-hidden="true"] {
@@ -83,13 +136,146 @@ nav a {
     transition: color 0.3s;
 }
 
+body.dark-mode nav a {
+    color: #93c5fd;
+}
+
 nav a:hover {
     color: #001f5b;
+}
+
+body.dark-mode nav a:hover {
+    color: #bfdbfe;
 }
 
 main {
     margin-left: 280px;
     padding: 2rem;
+}
+
+.course-progress-card {
+    margin-bottom: 1.25rem;
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #eef6ff 0%, #dcecff 100%);
+    border: 1px solid #cfe0ff;
+}
+
+body.dark-mode .course-progress-card {
+    background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+    border-color: #374151;
+}
+
+.course-progress-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.course-progress-card h2 {
+    margin: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+    color: #004aad;
+}
+
+body.dark-mode .course-progress-card h2 {
+    color: #bfdbfe;
+}
+
+.course-progress-bar {
+    width: 100%;
+    height: 10px;
+    background: rgba(0, 74, 173, 0.14);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.course-progress-bar__fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #1e88e5 0%, #004aad 100%);
+    transition: width 0.25s ease;
+}
+
+.chapter-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #e5ecf6;
+}
+
+body.dark-mode .chapter-actions {
+    border-top-color: #374151;
+}
+
+.chapter-button {
+    border: none;
+    border-radius: 999px;
+    padding: 0.65rem 1rem;
+    cursor: pointer;
+    font-weight: 700;
+    background: #004aad;
+    color: white;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.chapter-button:hover {
+    transform: translateY(-1px);
+    background: #00357f;
+}
+
+.chapter-button.is-complete {
+    background: #2e7d32;
+}
+
+.chapter-button.is-complete:hover {
+    background: #245f28;
+}
+
+.chapter-status {
+    font-weight: 600;
+    color: #004aad;
+}
+
+body.dark-mode .chapter-status {
+    color: #bfdbfe;
+}
+
+.certificate-card {
+    margin-top: 1.5rem;
+    padding: 1.25rem;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #fff8dc 0%, #ffe082 100%);
+    border: 1px solid #f0c36d;
+    display: none;
+}
+
+body.dark-mode .certificate-card {
+    background: linear-gradient(135deg, #3f2d0b 0%, #7c4a03 100%);
+    border-color: #b97c14;
+}
+
+.certificate-card.is-visible {
+    display: block;
+}
+
+.certificate-card h3 {
+    margin-top: 0;
+    color: #6d4c00;
+}
+
+body.dark-mode .certificate-card h3 {
+    color: #ffe082;
+}
+
+.certificate-download {
+    margin-top: 0.75rem;
 }
 
 section {
@@ -100,14 +286,158 @@ section {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+body.dark-mode section {
+    background: #1f2937;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
 section h2 {
     color: #004aad;
     border-bottom: 2px solid #004aad;
     padding-bottom: 0.3rem;
 }
 
+body.dark-mode section h2 {
+    color: #dbeafe;
+    border-bottom-color: #60a5fa;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.section-header h2 {
+    margin: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.section-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #eaf3ff 0%, #d7e8ff 100%);
+    box-shadow: 0 4px 10px rgba(0, 74, 173, 0.15);
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+body.dark-mode .section-icon {
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
 details {
     margin-top: 1rem;
+}
+
+.quiz {
+    margin-top: 1.5rem;
+    padding: 1.25rem;
+    border: 1px solid #d8e6f7;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #f8fbff 0%, #eef5ff 100%);
+}
+
+body.dark-mode .quiz {
+    background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
+    border-color: #374151;
+}
+
+.quiz h3 {
+    margin-top: 0;
+    color: #004aad;
+}
+
+body.dark-mode .quiz h3 {
+    color: #bfdbfe;
+}
+
+.quiz-question {
+    margin-bottom: 1rem;
+    padding-bottom: 0.9rem;
+    border-bottom: 1px solid #e1ebf7;
+}
+
+.quiz-question:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.quiz-option {
+    display: block;
+    margin: 0.45rem 0;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid #d5e4f7;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+body.dark-mode .quiz-option {
+    background: #111827;
+    border-color: #4b5563;
+    color: #f3f4f6;
+}
+
+.quiz-option:hover {
+    border-color: #004aad;
+}
+
+.quiz-option input {
+    margin-right: 0.5rem;
+}
+
+.quiz-option.is-selected {
+    border-color: #004aad;
+    background: #eef5ff;
+}
+
+body.dark-mode .quiz-option.is-selected {
+    border-color: #60a5fa;
+    background: #1e3a8a;
+}
+
+.quiz-option.is-selected.is-correct {
+    border-color: #2e7d32;
+    background: #e8f5e9;
+}
+
+body.dark-mode .quiz-option.is-selected.is-correct {
+    border-color: #4ade80;
+    background: #14532d;
+}
+
+.quiz-option.is-selected.is-wrong {
+    border-color: #c62828;
+    background: #ffebee;
+}
+
+body.dark-mode .quiz-option.is-selected.is-wrong {
+    border-color: #f87171;
+    background: #7f1d1d;
+}
+
+.quiz-feedback {
+    margin-top: 0.5rem;
+    font-weight: 600;
+    min-height: 1.2rem;
+}
+
+.quiz-feedback.is-correct {
+    color: #2e7d32;
+}
+
+.quiz-feedback.is-wrong {
+    color: #c62828;
 }
 
 summary {
@@ -116,12 +446,20 @@ summary {
     color: #004aad;
 }
 
+body.dark-mode summary {
+    color: #bfdbfe;
+}
+
 footer {
     text-align: center;
     padding: 1rem;
     background-color: #004aad;
     color: white;
     margin-top: 2rem;
+}
+
+body.dark-mode footer {
+    background: linear-gradient(135deg, #0f172a 0%, #1d4ed8 100%);
 }
 
 img {
