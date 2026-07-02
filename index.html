@@ -9,10 +9,15 @@
 </head>
 
 <body>
+    <div class="reading-progress" aria-label="Progresso de leitura">
+        <div id="readingProgressBar" class="reading-progress__bar"></div>
+    </div>
+
     <header>
         <h1>Manual Prático de Direção Veicular</h1>
         <p>Criado por: Jônatas da Cunha Silva - Instrutor Teórico e Prático (Cred. 5994/09)</p>
         <button id="navToggle" class="nav-toggle" aria-controls="toc" aria-expanded="true">☰</button>
+        <button id="themeToggle" class="theme-toggle" type="button" aria-pressed="false" title="Alternar tema escuro">🌙</button>
     </header>
     <nav id="toc" class="sidebar" role="navigation">
         <h2>Índice</h2>
@@ -64,15 +69,35 @@
         </ul>
     </nav>
     <main>
+        <section class="course-progress-card" aria-label="Progresso do curso">
+            <div class="course-progress-card__header">
+                <h2>Progresso do curso</h2>
+                <span id="courseProgressText">0 de 6 capítulos concluídos</span>
+            </div>
+            <div class="course-progress-bar" aria-hidden="true">
+                <div id="courseProgressBar" class="course-progress-bar__fill"></div>
+            </div>
+        </section>
+
         <section id="introducao">
-            <h2>1. Introdução</h2>
+            <div class="section-header">
+                <div class="section-icon" aria-hidden="true">📘</div>
+                <h2>1. Introdução</h2>
+            </div>
             <p>Este manual tem como objetivo auxiliar você durante as suas aulas práticas de direção veicular.
                 Recomenda-se a leitura deste material como forma de apoio para um maior entendimento das situações que
                 você verá durante as aulas práticas. Caso tenha dúvida em qualquer item deste manual você pode perguntar
                 diretamente para o seu instrutor.</p>
+            <div class="chapter-actions">
+                <span class="chapter-status">Em andamento</span>
+                <button class="chapter-button" type="button">Concluir capítulo</button>
+            </div>
         </section>
         <section id="conhecendo">
-            <h2>2. Conhecendo o seu veículo</h2>
+            <div class="section-header">
+                <div class="section-icon" aria-hidden="true">🚗</div>
+                <h2>2. Conhecendo o seu veículo</h2>
+            </div>
             <p>Antes mesmo de ligar o carro e já sair dirigindo você deve primeiramente
                 conhecer o seu veículo bem como as principais funções do seu carro para que
                 você possa dirigir de maneira correta e segura. Importante que você leia o
@@ -409,9 +434,55 @@
                     </div>
                 </div>
             </div>
+
+            <div class="quiz">
+                <h3>Quiz — Conhecendo o seu veículo</h3>
+                <div class="quiz-question">
+                    <p><strong>1.</strong> Qual pedal deve ser acionado com o pé esquerdo?</p>
+                    <label class="quiz-option" data-label="B"><input type="radio" name="quiz-conhecendo-1" value="A"> Freio</label>
+                    <label class="quiz-option" data-label="B"><input type="radio" name="quiz-conhecendo-1" value="B" data-correct="true"> Embreagem</label>
+                    <label class="quiz-option" data-label="B"><input type="radio" name="quiz-conhecendo-1" value="C"> Acelerador</label>
+                    <div class="quiz-feedback" aria-live="polite"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>2.</strong> Qual é a função principal do freio?</p>
+                    <label class="quiz-option" data-label="A"><input type="radio" name="quiz-conhecendo-2" value="A" data-correct="true"> Diminuir ou parar o veículo</label>
+                    <label class="quiz-option" data-label="A"><input type="radio" name="quiz-conhecendo-2" value="B"> Aumentar a rotação do motor</label>
+                    <label class="quiz-option" data-label="A"><input type="radio" name="quiz-conhecendo-2" value="C"> Trocar de marcha</label>
+                    <div class="quiz-feedback" aria-live="polite"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>3.</strong> O acelerador serve para:</p>
+                    <label class="quiz-option" data-label="B"><input type="radio" name="quiz-conhecendo-3" value="A"> Frear o carro</label>
+                    <label class="quiz-option" data-label="B"><input type="radio" name="quiz-conhecendo-3" value="B" data-correct="true"> Aumentar a rotação e a velocidade</label>
+                    <label class="quiz-option" data-label="B"><input type="radio" name="quiz-conhecendo-3" value="C"> Engatar a ré</label>
+                    <div class="quiz-feedback" aria-live="polite"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>4.</strong> Em subidas, o condutor costuma usar marchas:</p>
+                    <label class="quiz-option" data-label="C"><input type="radio" name="quiz-conhecendo-4" value="A"> Maiores</label>
+                    <label class="quiz-option" data-label="C"><input type="radio" name="quiz-conhecendo-4" value="B"> Mais altas</label>
+                    <label class="quiz-option" data-label="C"><input type="radio" name="quiz-conhecendo-4" value="C" data-correct="true"> Menores</label>
+                    <div class="quiz-feedback" aria-live="polite"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>5.</strong> A luz baixa é usada para:</p>
+                    <label class="quiz-option" data-label="B"><input type="radio" name="quiz-conhecendo-5" value="A"> Alertar sobre uma parada de emergência</label>
+                    <label class="quiz-option" data-label="B"><input type="radio" name="quiz-conhecendo-5" value="B" data-correct="true"> Iluminar a via sem ofuscar os demais</label>
+                    <label class="quiz-option" data-label="B"><input type="radio" name="quiz-conhecendo-5" value="C"> Acionar os limpadores do vidro</label>
+                    <div class="quiz-feedback" aria-live="polite"></div>
+                </div>
+            </div>
+            <div class="chapter-actions">
+                <span class="chapter-status">Em andamento</span>
+                <button class="chapter-button" type="button">Concluir capítulo</button>
+            </div>
         </section>
         <section id="ajustes">
-            <h2>3. Ajustes iniciais</h2>
+            <div class="section-header">
+                <div class="section-icon" aria-hidden="true">🔧</div>
+                <h2>3. Ajustes iniciais</h2>
+            </div>
             <p>Agora que você já está familiarizado com as funções básicas do seu carro,
                 você já está pronto para conduzir o seu carro de forma segura. Mas você ainda
                 precisa fazer algumas verificações e ajustes antes de sair com o seu carro. </p>
@@ -487,9 +558,55 @@
                     <h5>Figura 20</h5>
                 </div>
             </div>
+
+            <div class="quiz">
+                <h3>Quiz — Ajustes iniciais</h3>
+                <div class="quiz-question">
+                    <p><strong>1.</strong> Antes de sair, o motorista deve verificar:</p>
+                    <label class="quiz-option" data-label="A"><input type="radio" name="quiz-ajustes-1" value="A" data-correct="true"> Se as portas estão bem fechadas</label>
+                    <label class="quiz-option" data-label="A"><input type="radio" name="quiz-ajustes-1" value="B"> Se o rádio está alto</label>
+                    <label class="quiz-option" data-label="A"><input type="radio" name="quiz-ajustes-1" value="C"> Se o carro está limpo</label>
+                    <div class="quiz-feedback" aria-live="polite"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>2.</strong> O banco deve ser ajustado para:</p>
+                    <label class="quiz-option" data-label="B"><input type="radio" name="quiz-ajustes-2" value="A"> Melhorar o som do carro</label>
+                    <label class="quiz-option" data-label="B"><input type="radio" name="quiz-ajustes-2" value="B" data-correct="true"> Alcance os pedais e o volante com segurança</label>
+                    <label class="quiz-option" data-label="B"><input type="radio" name="quiz-ajustes-2" value="C"> Deixar os passageiros mais confortáveis</label>
+                    <div class="quiz-feedback" aria-live="polite"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>3.</strong> Os retrovisores servem para:</p>
+                    <label class="quiz-option" data-label="C"><input type="radio" name="quiz-ajustes-3" value="A"> Aumentar o consumo de combustível</label>
+                    <label class="quiz-option" data-label="C"><input type="radio" name="quiz-ajustes-3" value="B"> Limpar os vidros</label>
+                    <label class="quiz-option" data-label="C"><input type="radio" name="quiz-ajustes-3" value="C" data-correct="true"> Melhorar a visibilidade e reduzir pontos cegos</label>
+                    <div class="quiz-feedback" aria-live="polite"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>4.</strong> O cinto de segurança é importante porque:</p>
+                    <label class="quiz-option" data-label="A"><input type="radio" name="quiz-ajustes-4" value="A" data-correct="true"> Aumenta a segurança dos ocupantes</label>
+                    <label class="quiz-option" data-label="A"><input type="radio" name="quiz-ajustes-4" value="B"> Substitui o freio</label>
+                    <label class="quiz-option" data-label="A"><input type="radio" name="quiz-ajustes-4" value="C"> Troca a marcha automaticamente</label>
+                    <div class="quiz-feedback" aria-live="polite"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>5.</strong> Qual é o cuidado correto ao entrar no veículo?</p>
+                    <label class="quiz-option" data-label="B"><input type="radio" name="quiz-ajustes-5" value="A"> Manter as portas abertas</label>
+                    <label class="quiz-option" data-label="B"><input type="radio" name="quiz-ajustes-5" value="B" data-correct="true"> Fechar e travar as portas</label>
+                    <label class="quiz-option" data-label="B"><input type="radio" name="quiz-ajustes-5" value="C"> Ligar o carro sem verificar</label>
+                    <div class="quiz-feedback" aria-live="polite"></div>
+                </div>
+            </div>
+            <div class="chapter-actions">
+                <span class="chapter-status">Em andamento</span>
+                <button class="chapter-button" type="button">Concluir capítulo</button>
+            </div>
         </section>
         <section id="normas">
-            <h2>4. Normas gerais de circulação e conduta</h2>
+            <div class="section-header">
+                <div class="section-icon" aria-hidden="true">🚦</div>
+                <h2>4. Normas gerais de circulação e conduta</h2>
+            </div>
             <p>O Código de Trânsito Brasileiro (CTB) estabelece as normas de circulação e
                 conduta que devem ser seguidas por todos os usuários das vias públicas do
                 Brasil. Essas normas têm como objetivo garantir a segurança, a fluidez e a
@@ -905,9 +1022,55 @@
                     que ocupar da contramão, você precisa seguir todos os passos descritos acima
                     para fazer a manobra de forma correta e segura. </p>
             </div>
+
+            <div class="quiz">
+                <h3>Quiz — Normas gerais de circulação</h3>
+                <div class="quiz-question">
+                    <p><strong>1.</strong> A preferência em uma rotatória geralmente é do veículo que:</p>
+                    <label class="quiz-option" data-label="B"><input type="radio" name="quiz-normas-1" value="A"> Está chegando pela direita</label>
+                    <label class="quiz-option" data-label="B"><input type="radio" name="quiz-normas-1" value="B" data-correct="true"> Já está circulando na rotatória</label>
+                    <label class="quiz-option" data-label="B"><input type="radio" name="quiz-normas-1" value="C"> Está parado</label>
+                    <div class="quiz-feedback" aria-live="polite"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>2.</strong> A direção defensiva tem como objetivo:</p>
+                    <label class="quiz-option" data-label="C"><input type="radio" name="quiz-normas-2" value="A"> Aumentar a velocidade</label>
+                    <label class="quiz-option" data-label="C"><input type="radio" name="quiz-normas-2" value="B"> Evitar o uso de cinto</label>
+                    <label class="quiz-option" data-label="C"><input type="radio" name="quiz-normas-2" value="C" data-correct="true"> Prevenir acidentes e garantir segurança</label>
+                    <div class="quiz-feedback" aria-live="polite"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>3.</strong> A ultrapassagem deve ser feita, em regra, pelo:</p>
+                    <label class="quiz-option" data-label="A"><input type="radio" name="quiz-normas-3" value="A" data-correct="true"> Lado esquerdo</label>
+                    <label class="quiz-option" data-label="A"><input type="radio" name="quiz-normas-3" value="B"> Lado direito</label>
+                    <label class="quiz-option" data-label="A"><input type="radio" name="quiz-normas-3" value="C"> Meio-fio</label>
+                    <div class="quiz-feedback" aria-live="polite"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>4.</strong> Ao se aproximar de uma faixa de pedestre, o condutor deve:</p>
+                    <label class="quiz-option" data-label="B"><input type="radio" name="quiz-normas-4" value="A"> Acelerar para passar primeiro</label>
+                    <label class="quiz-option" data-label="B"><input type="radio" name="quiz-normas-4" value="B" data-correct="true"> Dar preferência ao pedestre</label>
+                    <label class="quiz-option" data-label="B"><input type="radio" name="quiz-normas-4" value="C"> Buzinar para alertar</label>
+                    <div class="quiz-feedback" aria-live="polite"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>5.</strong> Em um cruzamento não sinalizado, a preferência geralmente é do veículo:</p>
+                    <label class="quiz-option" data-label="C"><input type="radio" name="quiz-normas-5" value="A"> Que estiver à esquerda</label>
+                    <label class="quiz-option" data-label="C"><input type="radio" name="quiz-normas-5" value="B"> Que estiver parado</label>
+                    <label class="quiz-option" data-label="C"><input type="radio" name="quiz-normas-5" value="C" data-correct="true"> Que vier pela direita</label>
+                    <div class="quiz-feedback" aria-live="polite"></div>
+                </div>
+            </div>
+            <div class="chapter-actions">
+                <span class="chapter-status">Em andamento</span>
+                <button class="chapter-button" type="button">Concluir capítulo</button>
+            </div>
         </section>
         <section id="teste">
-            <h2>5. Teste prático</h2>
+            <div class="section-header">
+                <div class="section-icon" aria-hidden="true">✅</div>
+                <h2>5. Teste prático</h2>
+            </div>
             <p>Depois de você ter conhecimento e domínio sobre o veículo, ter noções
                 básicas sobre as normas gerais de circulação e conduta no trânsito e ter
                 finalizado todas as suas aulas práticas você estará apto(a) a fazer o teste
@@ -1197,6 +1360,49 @@
                         Contran.
                     </p>
                 </div>
+            </div>
+
+            <div class="quiz">
+                <h3>Quiz — Teste prático</h3>
+                <div class="quiz-question">
+                    <p><strong>1.</strong> O teste prático avalia principalmente:</p>
+                    <label class="quiz-option" data-label="B"><input type="radio" name="quiz-teste-1" value="A"> Apenas a teoria</label>
+                    <label class="quiz-option" data-label="B"><input type="radio" name="quiz-teste-1" value="B" data-correct="true"> O comportamento e a condução ao longo do trajeto</label>
+                    <label class="quiz-option" data-label="B"><input type="radio" name="quiz-teste-1" value="C"> Somente o estacionamento</label>
+                    <div class="quiz-feedback" aria-live="polite"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>2.</strong> Para ser aprovado, o candidato não pode ultrapassar:</p>
+                    <label class="quiz-option" data-label="A"><input type="radio" name="quiz-teste-2" value="A" data-correct="true"> 10 pontos</label>
+                    <label class="quiz-option" data-label="A"><input type="radio" name="quiz-teste-2" value="B"> 5 pontos</label>
+                    <label class="quiz-option" data-label="A"><input type="radio" name="quiz-teste-2" value="C"> 20 pontos</label>
+                    <div class="quiz-feedback" aria-live="polite"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>3.</strong> Faltas gravíssimas somam:</p>
+                    <label class="quiz-option" data-label="B"><input type="radio" name="quiz-teste-3" value="A"> 2 pontos</label>
+                    <label class="quiz-option" data-label="B"><input type="radio" name="quiz-teste-3" value="B" data-correct="true"> 6 pontos</label>
+                    <label class="quiz-option" data-label="B"><input type="radio" name="quiz-teste-3" value="C"> 1 ponto</label>
+                    <div class="quiz-feedback" aria-live="polite"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>4.</strong> Faltas médias somam:</p>
+                    <label class="quiz-option" data-label="C"><input type="radio" name="quiz-teste-4" value="A"> 1 ponto</label>
+                    <label class="quiz-option" data-label="C"><input type="radio" name="quiz-teste-4" value="B" data-correct="true"> 2 pontos</label>
+                    <label class="quiz-option" data-label="C"><input type="radio" name="quiz-teste-4" value="C"> 4 pontos</label>
+                    <div class="quiz-feedback" aria-live="polite"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>5.</strong> Ao realizar uma conversão, o motorista deve:</p>
+                    <label class="quiz-option" data-label="A"><input type="radio" name="quiz-teste-5" value="A"> Nunca sinalizar</label>
+                    <label class="quiz-option" data-label="A"><input type="radio" name="quiz-teste-5" value="B" data-correct="true"> Sinalizar e controlar a manobra</label>
+                    <label class="quiz-option" data-label="A"><input type="radio" name="quiz-teste-5" value="C"> Acelerar de modo brusco</label>
+                    <div class="quiz-feedback" aria-live="polite"></div>
+                </div>
+            </div>
+            <div class="chapter-actions">
+                <span class="chapter-status">Em andamento</span>
+                <button class="chapter-button" type="button">Concluir capítulo</button>
             </div>
         </section>
         <section id="conceitos">
@@ -1519,8 +1725,56 @@
                 circulação prioritária de pedestres.<br><br>
                 ● VIADUTO – obra de construção civil destinada a transpor uma depressão
                 de terreno ou servir de passagem superior.</p>
+
+            <div class="quiz">
+                <h3>Quiz — Dos conceitos e definições</h3>
+                <div class="quiz-question">
+                    <p><strong>1.</strong> O CTB define a via como:</p>
+                    <label class="quiz-option" data-label="B"><input type="radio" name="quiz-conceitos-1" value="A"> Apenas estrada</label>
+                    <label class="quiz-option" data-label="B"><input type="radio" name="quiz-conceitos-1" value="B" data-correct="true"> O espaço por onde transitam veículos, pessoas e animais</label>
+                    <label class="quiz-option" data-label="B"><input type="radio" name="quiz-conceitos-1" value="C"> Somente a pista</label>
+                    <div class="quiz-feedback" aria-live="polite"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>2.</strong> A faixa de pedestre é:</p>
+                    <label class="quiz-option" data-label="C"><input type="radio" name="quiz-conceitos-2" value="A"> Um local de estacionamento</label>
+                    <label class="quiz-option" data-label="C"><input type="radio" name="quiz-conceitos-2" value="B"> Uma pista exclusiva para ônibus</label>
+                    <label class="quiz-option" data-label="C"><input type="radio" name="quiz-conceitos-2" value="C" data-correct="true"> Uma área destinada à travessia de pedestres</label>
+                    <div class="quiz-feedback" aria-live="polite"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>3.</strong> O acostamento é uma parte da via destinada, principalmente, a:</p>
+                    <label class="quiz-option" data-label="A"><input type="radio" name="quiz-conceitos-3" value="A" data-correct="true"> Parada de emergência e circulação de pedestres e bicicletas</label>
+                    <label class="quiz-option" data-label="A"><input type="radio" name="quiz-conceitos-3" value="B"> Aumentar a velocidade</label>
+                    <label class="quiz-option" data-label="A"><input type="radio" name="quiz-conceitos-3" value="C"> Estacionamento de longo prazo</label>
+                    <div class="quiz-feedback" aria-live="polite"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>4.</strong> Sinalização é:</p>
+                    <label class="quiz-option" data-label="B"><input type="radio" name="quiz-conceitos-4" value="A"> Apenas o painel do carro</label>
+                    <label class="quiz-option" data-label="B"><input type="radio" name="quiz-conceitos-4" value="B" data-correct="true"> O conjunto de sinais e dispositivos colocados na via</label>
+                    <label class="quiz-option" data-label="B"><input type="radio" name="quiz-conceitos-4" value="C"> Somente os semáforos</label>
+                    <div class="quiz-feedback" aria-live="polite"></div>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>5.</strong> Ultrapassagem significa:</p>
+                    <label class="quiz-option" data-label="C"><input type="radio" name="quiz-conceitos-5" value="A"> Estacionar o veículo</label>
+                    <label class="quiz-option" data-label="C"><input type="radio" name="quiz-conceitos-5" value="B"> Trocar de marcha</label>
+                    <label class="quiz-option" data-label="C"><input type="radio" name="quiz-conceitos-5" value="C" data-correct="true"> Passar à frente de outro veículo no mesmo sentido</label>
+                    <div class="quiz-feedback" aria-live="polite"></div>
+                </div>
+            </div>
+            <div class="chapter-actions">
+                <span class="chapter-status">Em andamento</span>
+                <button class="chapter-button" type="button">Concluir capítulo</button>
+            </div>
         </section>
     </main>
+    <section id="certificateCard" class="certificate-card" aria-live="polite">
+        <h3>🎓 Certificado de conclusão</h3>
+        <p>Parabéns! Você concluiu todos os capítulos do manual e recebeu este certificado de conclusão.</p>
+        <button id="downloadCertificateBtn" class="chapter-button certificate-download" type="button">Baixar certificado em PNG</button>
+    </section>
     <footer>
         <p>© 2025 - Manual Prático de Direção Veicular | Criado por Jônatas da Cunha Silva</p>
     </footer>
